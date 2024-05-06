@@ -134,7 +134,8 @@ dropOnly <- function (x) {
 #' @export
 dropPattern <- function (x) {
     logMessage("CACHE DROP", x)
-    rm(list=ls(envir=cache, pattern=x), envir=identifyCache())
+    cur_cache <- identifyCache()
+    rm(list=ls(envir=cur_cache, pattern=x), envir=cur_cache)
 }
 
 # dropBelow <- function (x) {
